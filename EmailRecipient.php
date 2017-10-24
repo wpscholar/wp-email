@@ -61,7 +61,7 @@ class EmailRecipient {
 	public function parse( $text ) {
 		$parts = explode( ' ', $text );
 		$this->email = trim( array_pop( $parts ), '<>' );
-		$this->name = join( ' ', $parts );
+		$this->name = implode( ' ', $parts );
 	}
 
 	/**

@@ -373,11 +373,11 @@ class Email {
 	 * @return mixed
 	 */
 	public function __get( $property ) {
-		$value  = null;
+		$value = null;
 		$method = "_get_{$property}";
 		if ( method_exists( $this, $method ) && is_callable( [ $this, $method ] ) ) {
 			$value = $this->$method();
-		} else if( property_exists( $this, $property ) ) {
+		} else if ( property_exists( $this, $property ) ) {
 			$value = $this->{$property};
 		}
 

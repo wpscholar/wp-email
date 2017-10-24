@@ -46,12 +46,12 @@ $email->subject = 'Welcome!';
 $email->message = '<p>Lorem ipsum dolor sit amet...</p>';
 
 // Customize the from name and email
-$email->from('John Doe <john@email.com>');
+$email->from( 'John Doe <john@email.com>' );
 
 // Add any recipients
-$email->addRecipient('Jane Doe <jane@email.com>');
-$email->addCcRecipient('James Doe <james@email.com>');
-$email->addBccRecipient('Super Spy <topsecret@email.com>');
+$email->addRecipient( 'Jane Doe <jane@email.com>' );
+$email->addCcRecipient( 'James Doe <james@email.com>' );
+$email->addBccRecipient( 'Super Spy <topsecret@email.com>' );
 
 // Add any attachments
 $email->addAttachment( '/wp-content/uploads/attachment.pdf' );
@@ -67,15 +67,15 @@ OR
 
 use wpscholar\WordPress\Email;
 
-$email = new Email([
-    'subject' => 'Welcome!',
-    'message' => '<p>Lorem ipsum dolor sit amet...</p>',
-    'from' => 'John Doe <john@email.com>',
-    'to' => ['Jane Doe <jane@email.com>'],
-    'cc' => ['James Doe <james@email.com>'],
-    'bcc' => ['Super Spy <topsecret@email.com>'],
-    'attachments' => ['/wp-content/uploads/attachment.pdf'],
-]);
+$email = new Email( [
+	'subject'     => 'Welcome!',
+	'message'     => '<p>Lorem ipsum dolor sit amet...</p>',
+	'from'        => 'John Doe <john@email.com>',
+	'to'          => [ 'Jane Doe <jane@email.com>' ],
+	'cc'          => [ 'James Doe <james@email.com>' ],
+	'bcc'         => [ 'Super Spy <topsecret@email.com>' ],
+	'attachments' => [ '/wp-content/uploads/attachment.pdf' ],
+] );
 
 $email->send();
 ```
