@@ -2,7 +2,7 @@
   "name": "wpscholar/wp-email",
   "description": "A WordPress library to simplify sending emails.",
   "type": "library",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Micah Wood",
