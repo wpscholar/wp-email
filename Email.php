@@ -70,7 +70,7 @@ class Email {
 	 * @param string|object|array|null $data
 	 */
 	public function __construct( $data = null ) {
-		if ( ! is_null( $data ) ) {
+		if ( null !== $data ) {
 			$this->setup( $data );
 		}
 	}
@@ -83,12 +83,12 @@ class Email {
 	public function setup( $data ) {
 
 		// If data is a string, assume it is JSON
-		if ( is_string( $data ) ) {
+		if ( \is_string( $data ) ) {
 			$data = json_decode( $data );
 		}
 
 		// If data is an object, convert to an array
-		if ( is_object( $data ) ) {
+		if ( \is_object( $data ) ) {
 			$data = (array) $data;
 		}
 
@@ -115,7 +115,7 @@ class Email {
 		// Set the recipient(s) name and/or email
 		if ( isset( $data['to'] ) ) {
 			$to = $data['to'];
-			if ( ! is_array( $to ) || isset( $to['email'] ) ) {
+			if ( ! \is_array( $to ) || isset( $to['email'] ) ) {
 				$to = [ $data['to'] ];
 			}
 			foreach ( $to as $recipient ) {
@@ -126,7 +126,7 @@ class Email {
 		// Set the CC recipient(s) name and/or email
 		if ( isset( $data['cc'] ) ) {
 			$cc = $data['cc'];
-			if ( ! is_array( $cc ) || isset( $cc['email'] ) ) {
+			if ( ! \is_array( $cc ) || isset( $cc['email'] ) ) {
 				$cc = [ $data['cc'] ];
 			}
 			foreach ( $cc as $recipient ) {
@@ -137,7 +137,7 @@ class Email {
 		// Set the BCC recipient(s) name and/or email
 		if ( isset( $data['bcc'] ) ) {
 			$bcc = $data['bcc'];
-			if ( ! is_array( $bcc ) || isset( $bcc['email'] ) ) {
+			if ( ! \is_array( $bcc ) || isset( $bcc['email'] ) ) {
 				$bcc = [ $data['bcc'] ];
 			}
 			foreach ( $bcc as $recipient ) {
@@ -375,7 +375,7 @@ class Email {
 	public function __get( $property ) {
 		$value = null;
 		$method = "_get_{$property}";
-		if ( method_exists( $this, $method ) && is_callable( [ $this, $method ] ) ) {
+		if ( method_exists( $this, $method ) && \is_callable( [ $this, $method ] ) ) {
 			$value = $this->$method();
 		} else if ( property_exists( $this, $property ) ) {
 			$value = $this->{$property};
@@ -392,7 +392,7 @@ class Email {
 	 */
 	public function __set( $property, $value ) {
 		$method = "_set_{$property}";
-		if ( method_exists( $this, $method ) && is_callable( [ $this, $method ] ) ) {
+		if ( method_exists( $this, $method ) && \is_callable( [ $this, $method ] ) ) {
 			$this->$method( $value );
 		}
 	}

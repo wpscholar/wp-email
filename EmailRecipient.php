@@ -25,7 +25,7 @@ class EmailRecipient {
 	 * @param string|object|array|null $recipient
 	 */
 	public function __construct( $recipient = null ) {
-		if ( ! is_null( $recipient ) ) {
+		if ( null !== $recipient ) {
 			$this->set( $recipient );
 		}
 	}
