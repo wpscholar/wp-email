@@ -272,7 +272,7 @@ class Email {
 	protected function _pre_send() {
 		// Add filters
 		add_filter( 'wp_mail_from', array( $this, '_wp_mail_from' ) );
-		add_filter( 'wp_mail_fromName', array( $this, '_wp_mail_from_name' ) );
+		add_filter( 'wp_mail_from_name', array( $this, '_wp_mail_from_name' ) );
 		add_filter( 'wp_mail_content_type', array( $this, '_wp_mail_content_type' ) );
 		add_filter( 'wp_mail_charset', array( $this, '_wp_mail_charset' ) );
 	}
